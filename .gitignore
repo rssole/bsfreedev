@@ -14,3 +14,13 @@ server.pid
 *.eml
 /dist/
 .cache
+build
+/.idea
+/.idea_modules
+/.classpath
+/.gradle
+/.project
+/.settings
+/RUNNING_PID
+
+/.vscode
