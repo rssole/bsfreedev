@@ -84,13 +84,13 @@ class PostActionBuilder @Inject()(messagesApi: MessagesApi, playBodyParsers: Pla
  * controller only has to have one thing injected.
  */
 case class PostControllerComponents @Inject()(postActionBuilder: PostActionBuilder,
-                                               postResourceHandler: PostResourceHandler,
-                                               actionBuilder: DefaultActionBuilder,
-                                               parsers: PlayBodyParsers,
-                                               messagesApi: MessagesApi,
-                                               langs: Langs,
-                                               fileMimeTypes: FileMimeTypes,
-                                               executionContext: scala.concurrent.ExecutionContext)
+                                              postResourceHandler: CarResourceHandler,
+                                              actionBuilder: DefaultActionBuilder,
+                                              parsers: PlayBodyParsers,
+                                              messagesApi: MessagesApi,
+                                              langs: Langs,
+                                              fileMimeTypes: FileMimeTypes,
+                                              executionContext: scala.concurrent.ExecutionContext)
   extends ControllerComponents
 
 /**
@@ -101,5 +101,5 @@ class PostBaseController @Inject()(pcc: PostControllerComponents) extends BaseCo
 
   def PostAction: PostActionBuilder = pcc.postActionBuilder
 
-  def postResourceHandler: PostResourceHandler = pcc.postResourceHandler
+  def postResourceHandler: CarResourceHandler = pcc.postResourceHandler
 }
